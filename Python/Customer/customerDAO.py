@@ -1,5 +1,5 @@
 import mysql.connector
-import Customer
+from Customer import Customer
 import base64
 
 from DataRepresentation_Project import dbconfig as cfg
@@ -55,27 +55,25 @@ class CustomerDAO:
 
 
 
-    # def createCustomer(self, customerId, firstName, lastName, contactNum, email, password):
-    #     b = base64.b64encode(bytes(password, 'utf-8'))  # bytes
-    #     hashedPassword = b.decode('utf-8')  # convert bytes to string
-    #     customer = Customer(customerId, firstName, lastName, contactNum, email, hashedPassword)
-    #     return customer
-    #
-    # def addNewCustomer(self, customer):
-    #     cursor = self.getcursor()
-    #     sql="INSERT INTO GolfStore.Customers (customerId, firstName, lastName, contactNum, emailAddress, password)" \
-    #         " values(%s, %s, %s, %s, %s, %s)"
-    #     cursor.execute(sql, (customer.getCustomerID(), customer.getFirstName(), customer.getLastName(),
-    #                          customer.getContactNumber(), customer.getEmailAddress(), customer.getPassword()))
-    #     self.connection.commit()
-    #     self.closeAll()
+    def createCustomer(self, customerId, firstName, lastName, contactNum, email, password):
+        b = base64.b64encode(bytes(password, 'utf-8'))  # bytes
+        hashedPassword = b.decode('utf-8')  # convert bytes to string
+        customer = Customer(customerId, firstName, lastName, contactNum, email, hashedPassword)
+        return customer
+
+    def addNewCustomer(self, customer):
+        cursor = self.getcursor()
+        sql="INSERT INTO GolfStore.Customers (customerId, firstName, lastName, contactNum, emailAddress, password)" \
+            " values(%s, %s, %s, %s, %s, %s)"
+        cursor.execute(sql, (customer.getCustomerID(), customer.getFirstName(), customer.getLastName(),
+                             customer.getContactNumber(), customer.getEmailAddress(), customer.getPassword()))
+        self.connection.commit()
+        self.closeAll()
 
 customerDAO = CustomerDAO()
 
 if __name__ == "__main__":
-    # customerDAO.getCustomerById(3)
+    # # customerDAO.getCustomerById(3)
     # customerDAO.getAllCustomers()
-    # newCustomer = customerDAO.createCustomer(1, "Timmy", "Toon", '0879898989', "tt@tiles.com", "jndi3uen3e3n")
-    # customerDAO.addNewCustomer(newCustomer)
-
-    print("success")
+    newCustomer = customerDAO.createCustomer(102, "Timmy", "Toon", '0879898989', "tt@tiles.com", "jndi3uen3e3n")
+    customerDAO.addNewCustomer(newCustomer)

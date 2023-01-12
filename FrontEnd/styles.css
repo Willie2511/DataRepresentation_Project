@@ -118,7 +118,7 @@ a {
 }
 
 
-/*
+
 @media screen and (max-width: 960px) {
 
     .nav-container {
@@ -177,7 +177,7 @@ a {
     }
 
 }
-*/
+
 body {
     background: #fcfcfc;
 }
@@ -643,7 +643,7 @@ footer {
 
 
 
-/*
+
 .payment{
   background: #f8f8f8;
   max-width: 360px;
