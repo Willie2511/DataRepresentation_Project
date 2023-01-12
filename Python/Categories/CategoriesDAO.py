@@ -35,14 +35,16 @@ class CategoriesDAO:
         sql = "SELECT * FROM GolfStore.categories"
         cursor.execute(sql)
         results = cursor.fetchall()
-        print(results)
+        self.closeAll()
+        return results
 
     def getCategoryById(self, id):
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.categories WHERE Id LIKE %s"
         cursor.execute(sql, (id,))
         results = cursor.fetchone()
-        print(results)
+        self.closeAll()
+        return results
 
 categoryDAO = CategoriesDAO()
 if __name__ == "__main__":

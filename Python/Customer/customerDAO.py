@@ -1,8 +1,9 @@
 import mysql.connector
-from Customer import Customer
 import base64
 
 from DataRepresentation_Project import dbconfig as cfg
+from DataRepresentation_Project.Python.Customer.Customer import Customer
+
 
 class CustomerDAO:
     connection = ""
@@ -37,21 +38,24 @@ class CustomerDAO:
         sql = "SELECT * FROM GolfStore.Customers"
         cursor.execute(sql)
         results = cursor.fetchall()
-        print(results)
+        self.closeAll()
+        return results
 
     def getCustomerById(self, id):
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Customers WHERE customerId LIKE %s"
         cursor.execute(sql, (id,))
         results = cursor.fetchone()
-        print(results)
+        self.closeAll()
+        return results
 
     def getCustomerByEmailAddress(self, email):
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Customers WHERE emailAddress LIKE %s"
         cursor.execute(sql, (email,))
         results = cursor.fetchall()
-        print(results)
+        self.closeAll()
+        return results
 
 
 

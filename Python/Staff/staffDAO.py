@@ -40,29 +40,32 @@ class StaffDAO:
         sql = "SELECT * FROM GolfStore.Staff"
         cursor.execute(sql)
         results = cursor.fetchall()
-        returnArray = []
-        print(results)
+        self.closeAll()
+        return results
 
     def getStaffById(self, id):
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Staff WHERE staffId LIKE %s"
         cursor.execute(sql, (id,))
         results = cursor.fetchone()
-        print(results)
+        self.closeAll()
+        return results
 
     def getStaffByEmailAddress(self, email):
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Staff WHERE emailAddress LIKE %s"
         cursor.execute(sql, (email,))
         results = cursor.fetchall()
-        print(results)
+        self.closeAll()
+        return results
 
     def getStaffByPosition(self, position):
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Staff WHERE position LIKE %s"
         cursor.execute(sql, (position,))
         results = cursor.fetchall()
-        print(results)
+        self.closeAll()
+        return results
 
 staffDAO = StaffDAO()
 

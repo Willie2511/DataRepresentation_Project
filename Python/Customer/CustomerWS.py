@@ -17,3 +17,6 @@ def getCustomerById(id):
 def addNewCustomer(customer):
     customerDAO.addNewCustomer(customer)
 
+
+if __name__ == "__main__":
+    app.run(debug=True)
