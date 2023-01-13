@@ -15,13 +15,13 @@ login = async (id, password) => {
 		url: rootUrl+"/Customers/search/"+id,
 		dataType: "json",
 		success: function(data) {
-		    console.log(url)
 			for(i=0; i<data.length; i++){
-				if(id == data[i].emailAddress && encodedPassword == data[i].password) {
+				if(id == data[i].customerId && encodedPassword == data[i].password) {
 					window.location.href="home.html";
 					alert("Welcome "+data[i].firstName);
 				} else {
 					alert("Incorrect Login Details");
+					return
 				}
 			}
 		}
@@ -32,11 +32,12 @@ login = async (id, password) => {
 		dataType: "json",
 		success: function(data) {
 			for(i=0; i<data.length; i++){
-				if(id == data[i].emailAddress && encodedPassword == data[i].password) {
+				if(id == data[i].staffId && encodedPassword == data[i].password) {
 					window.location.href="Staff.html";
 					alert("Welcome "+data[i].firstName);
 				} else {
 					alert("Incorrect Login Details");
+					return
 				}
 			}
 		}

@@ -2,8 +2,9 @@ var rootUrl="http://127.0.0.1:5000";
 
 createUser = function(id, firstname, lastname, contactNumber, email, password) {
 	var encodedPassword = btoa(password);
-	let body = JSON.stringify({customerId: id, firstName: firstname, lastName: lastname, contactNumber: contactNumber, emailAddress: email, password: encodedPassword})
+	let body = JSON.stringify({customerId: id, firstName: firstname, lastName: lastname, contactNum: contactNumber, emailAddress: email, password: encodedPassword})
 	console.log(body);
+
 
 
 	$.ajax({

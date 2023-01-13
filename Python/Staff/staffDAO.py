@@ -55,7 +55,7 @@ class StaffDAO:
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Staff WHERE emailAddress LIKE %s"
         cursor.execute(sql, (email,))
-        results = cursor.fetchall()
+        results = cursor.fetchone()
         self.closeAll()
         return results
 

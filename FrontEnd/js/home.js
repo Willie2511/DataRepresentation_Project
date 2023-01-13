@@ -1,13 +1,9 @@
 var rootUrl="http://127.0.0.1:5000";
 
 
-
-
-
-
 var findAll=function(){
 	$.ajax({type:'GET',
-        url:rootUrl + "/categories",
+        url:rootUrl + "/Categories",
         dataType:'json',
         success:
         	renderList

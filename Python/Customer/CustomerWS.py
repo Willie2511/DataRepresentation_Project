@@ -19,7 +19,8 @@ def getCustomerByEmail(email):
     return jsonify(customerByEmail)
 
 @app.route('/Customers', methods=['POST'])
-def addNewCustomer(customer):
+def addNewCustomer(customerId, firstname, lastname, contactNum, email, password):
+    customer = customerDAO.createCustomer(customerId, firstname, lastname, contactNum, email, password)
     customerDAO.addNewCustomer(customer)
 
 
