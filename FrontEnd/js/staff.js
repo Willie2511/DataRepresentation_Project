@@ -1,4 +1,4 @@
-var rootUrl="http://localhost:8080/GolfStoreWorking-0.0.1-SNAPSHOT/rest";
+var rootUrl="http://127.0.0.1:5000";
 
 createUser = function(id, firstname, lastname, contactNumber, email, password) {
 	var encodedPassword = btoa(password);

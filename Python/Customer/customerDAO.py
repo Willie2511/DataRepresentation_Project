@@ -53,7 +53,7 @@ class CustomerDAO:
         cursor = self.getcursor()
         sql = "SELECT * FROM GolfStore.Customers WHERE emailAddress LIKE %s"
         cursor.execute(sql, (email,))
-        results = cursor.fetchall()
+        results = cursor.fetchone()
         self.closeAll()
         return results
 
@@ -77,7 +77,13 @@ class CustomerDAO:
 customerDAO = CustomerDAO()
 
 if __name__ == "__main__":
-    # # customerDAO.getCustomerById(3)
+    # customerDAO.getCustomerById(3)
     # customerDAO.getAllCustomers()
-    newCustomer = customerDAO.createCustomer(102, "Timmy", "Toon", '0879898989', "tt@tiles.com", "jndi3uen3e3n")
-    customerDAO.addNewCustomer(newCustomer)
+    customerDAO.getCustomerByEmailAddress("tt@tiles.com")
+    # newCustomer = customerDAO.createCustomer(102, "Timmy", "Toon", '0879898989', "tt@tiles.com", "jndi3uen3e3n")
+    # customerDAO.addNewCustomer(newCustomer)
+
+
+
+
+

@@ -72,6 +72,6 @@ staffDAO = StaffDAO()
 if __name__ == "__main__":
     # staffDAO.getStaffById(1)
     # staffDAO.getStaffByEmailAddress("markclancey@cgl.staff.com")
-    staffDAO.getStaffByPosition("Customer Service")
+    # staffDAO.getStaffByPosition("Customer Service")
     print("success")
 

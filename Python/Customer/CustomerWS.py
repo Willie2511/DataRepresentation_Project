@@ -8,10 +8,15 @@ def getAllCustomers():
     allCustomers = customerDAO.getAllCustomers()
     return jsonify(allCustomers)
 
-@app.route('/Customers/search/<id>', methods=['GET'])
+@app.route('/Customers/<id>', methods=['GET'])
 def getCustomerById(id):
     customer = customerDAO.getCustomerById(id)
     return jsonify(customer)
+
+@app.route('/Customers/search/<email>', methods=['GET'])
+def getCustomerByEmail(email):
+    customerByEmail = customerDAO.getCustomerByEmailAddress(email)
+    return jsonify(customerByEmail)
 
 @app.route('/Customers', methods=['POST'])
 def addNewCustomer(customer):

@@ -1,4 +1,4 @@
-var rootUrl="http://localhost:8080/GolfStoreWorking-0.0.1-SNAPSHOT/rest";
+var rootUrl="http://127.0.0.1:5000";
 var list;
 
 
@@ -6,6 +6,7 @@ var list;
 login = async (id, password) => {
 	let body = JSON.stringify({username: id, password: password })
 	var encodedPassword = btoa(password);
+	console.log(body)
 
 
 
@@ -14,6 +15,7 @@ login = async (id, password) => {
 		url: rootUrl+"/Customers/search/"+id,
 		dataType: "json",
 		success: function(data) {
+		    console.log(url)
 			for(i=0; i<data.length; i++){
 				if(id == data[i].emailAddress && encodedPassword == data[i].password) {
 					window.location.href="home.html";
@@ -23,7 +25,7 @@ login = async (id, password) => {
 				}
 			}
 		}
-})
+       })
 	$.ajax({
 		type: 'GET',
 		url: rootUrl+"/Staff/search/"+id,

@@ -1,4 +1,4 @@
-var rootUrl="http://localhost:8080/GolfStore/rest";
+var rootUrl="http://127.0.0.1:5000";
 
 
 
@@ -37,7 +37,6 @@ var renderList = function(list) {
 
 
 $(document).ready(function(){
-
 
 
 findAll();

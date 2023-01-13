@@ -8,7 +8,12 @@ def getAllStaff():
     allStaff = staffDAO.getAllStaff()
     return jsonify(allStaff)
 
-@app.route('/Staff/search/<id>', methods=['GET'])
-def getStaffById(id):
-    staffById = staffDAO.getStaffById(id)
+@app.route('/Staff/Id', methods=['GET'])
+def getStaffById(Id):
+    staffById = staffDAO.getStaffById(Id)
     return jsonify(staffById)
+
+@app.route('/Staff/search/<email>', methods=['GET'])
+def getStaffByEmail(email):
+    staffByEmail = staffDAO.getStaffByEmailAddress(email)
+    return jsonify(staffByEmail)
